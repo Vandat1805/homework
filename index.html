@@ -167,11 +167,11 @@
       object-fit: cover;
       border-radius: 10px;
     }
-    .continue {
-      font-weight: 500px;
-      color: gray;
+    /* .continue {
+      font-weight: 500;
       text-transform: uppercase;
-    }
+      color: gray;
+    } */
     .arrow-right {
       position: relative;
       font-size: 40px;
@@ -212,10 +212,16 @@
         width: 100%;
     }
     .icon-footer{
+        float: right;
         text-align: right;
         padding: 0px 150px;
-        float: right;
         width: 100%;
+      }
+    .icon-zoom{
+      transition: transform .2s;
+    }
+    .icon-zoom:hover{
+      transform: scale(1.5);
     }
     .content-first{
         margin-left: 50px;
@@ -251,8 +257,116 @@
       color: white;
       text-align: center;
     }
+    #toTop {
+        position: fixed;
+        bottom: 20px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        background-image: url(img/totop.png);
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: yellow;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 10px 0 #c9c90a;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      #toTop:active {
+        transform: translateY(10px);
+        box-shadow: none;
+      }
+      .link-footer{
+        font-weight: 500;
+        text-transform: uppercase;
+        color: gray;
+        text-decoration: none;
+        font-size: 16px;
+        transition: font-size .2s; /* Animation */
+      }
+      .link-footer:hover{
+        color:blueviolet;
+        /* zoom: 1.1; */
+        font-size: 20px;
+      }
+      nav {
+      position: fixed;
+      width: 70px;
+      margin-top: 320px;
+      z-index: 1;
+      /* box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.4); */
+        }
+      nav li {
+        height: 80px;
+        position: relative;
+      }
+      nav li a {
+        color: white;
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 60px;
+        padding-left: 25%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        transition: all 0.3s linear;
+      }
+      nav li:nth-child(1) a {
+        background: #4267b2;
+      }
+      nav li:nth-child(2) a {
+        background: #010101;
+      }
+      nav li:nth-child(3) a {
+        background: #ff0000;
+      }
+      nav li:nth-child(4) a {
+        background: #015ce0;
+      }
+      nav li a i {
+        position: absolute;
+        top: 25px;
+        left: 20px;
+        font-size: 27px;
+      }
+      nav li a span {
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: none;
+      }
+      a:hover {
+        z-index: 1;
+        width: 200px;
+      }
+      ul li a:hover span {
+        display: block;
+        padding-left: 30%;
+      }
+      html{
+        scroll-behavior: smooth;
+      }
   </style>
   <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="">
+            <i class="fab fa-facebook-square"></i><span>Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a href=""> <i class="fab fa-tiktok"></i><span>Tiktok</span> </a>
+        </li>
+        <li>
+          <a href=""> <i class="fab fa-youtube"></i><span>Youtube</span> </a>
+        </li>
+        <li>
+          <a href=""> <i class="fas fa-phone-alt"></i><span>Phone</span> </a>
+        </li>
+      </ul>
+    </nav>
     <div class="wrapper">
       <header>Khách hàng thành công</header>
       <p class="title-khachhang">Các chuyên gia tư vấn của SSG cùng với khách hàng phát triển các kỹ năng
@@ -385,9 +499,11 @@
           SỰ KIỆN Lễ công bố triển khai thành công hệ thống ERP cho Tập đoàn Hoa
           Sen (Hoa Sen Group)
           <p class="continue">
-            xem them <i class="material-symbols-outlined arrow-right">
+              <a href="" class="link-footer">
+              xem them <i class="material-symbols-outlined arrow-right">
                 arrow_right</i>
-          </p>
+              </a>
+              </p>
         </h3>
       </div>
       <div class="post-item">
@@ -401,9 +517,11 @@
           SSG tài trợ chính hội thảo “E-logistics Việt Nam sẵn sàn cất cánh” –
           Hiệp Hội Doanh nghiệp Dịch vụ Logistics Việt Nam (VLA) tổ chức
           <p class="continue">
+            <a href="" class="link-footer">  
             xem them <i class="material-symbols-outlined arrow-right">
                 arrow_right</i>
-          </p>
+              </a>
+              </p>
         </h3>
       </div>
       <div class="post-item">
@@ -416,9 +534,11 @@
         <h3 class="post-content">
           Lễ công bố triển khai dự án ERP cho Tôn Đông Á
           <p class="continue">
-            xem them
+            <a href="" class="link-footer">
+              xem them
             <i class="material-symbols-outlined arrow-right">
                 arrow_right</i>
+            </a>
           </p>
         </h3>
       </div>
@@ -478,12 +598,14 @@
         <div class="footer-end">
             <p class="license"><br> Bản quyền © 2023 thuộc Công ty SSG.</p>
             <p class="icon-footer">
-                <i class="fab fa-facebook-square icon-last"></i>
-                <i class="fab fa-youtube icon-last"></i>
-                <i class="fab fa-tiktok icon-last"></i>
-                <i class="fab fa-linkedin icon-last"></i>
+                <i class="icon-zoom fab fa-facebook-square icon-last"></i>
+                <i class="icon-zoom fab fa-youtube icon-last"></i>
+                <i class="icon-zoom fab fa-tiktok icon-last"></i>
+                <i class="icon-zoom fab fa-linkedin icon-last"></i>
             </p>
         </div>
     </div>
+    <a href="#" id="toTop"></a>
+    <script src="app.js"></script>
   </body>
 </html>
